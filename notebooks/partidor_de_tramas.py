@@ -21,6 +21,10 @@ def agrupar_por_tipo(archivo_entrada):
             tipo = linea_trama[:3]
             if (tipo == '803') & (linea_trama[639:641]!= '01'):
                 tipo= '803_TLMK'
+            if tipo in ('901','902','903','906','941','951',
+                        '952','953','954','958','959','961',
+                        '962','963','964','966','968','972'):
+                tipo = 'PRESTAMOS'
             if tipo not in grupos:
                 grupos[tipo] = []
             grupos[tipo].append(linea_trama)
